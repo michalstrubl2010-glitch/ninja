@@ -8,3 +8,5 @@ window.addEventListener('keydown', function(e) {
 window.addEventListener('keyup', function(e) {
     keyState[e.keyCode || e.which] = false;
 }, true);
+
+//niger;

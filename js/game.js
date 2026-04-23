@@ -115,20 +115,20 @@ class Game {
 
     setlevel(){
         this.background.levelImg.src = "imgs/background/level-02.png";
-        //this.ninja = new Ninja(this.cnvs);
+        this.ninja = new Ninja(this.cnvs);
         this.obstacles = new Array();
         this.inventory = new Array();
         this.gameOver = false;
         this.shurikenCount = 3;
-        this.obstacles.push(new Obstacle(this.cnvs, 0, 685, 550, 50, 1));
-        this.obstacles.push(new Obstacle(this.cnvs, 550, 655, 50, 40, 1));
-        this.obstacles.push(new Obstacle(this.cnvs, 600, 620, 40, 70, 1));
-        this.obstacles.push(new Obstacle(this.cnvs, 640, 580, 42, 70, 1));
-        this.obstacles.push(new Obstacle(this.cnvs, 682, 550, 373, 60, 1));
-        this.obstacles.push(new Obstacle(this.cnvs, 1055, 571, 63, 60, 1));
-        this.obstacles.push(new Obstacle(this.cnvs, 1118, 610, 57, 60, 1));
-        this.obstacles.push(new Obstacle(this.cnvs, 1156, 650, 50, 90, 1));
-        this.obstacles.push(new Obstacle(this.cnvs, 1205, 698, 750, 51, 1));
+        this.obstacles.push(new Obstacle(this.cnvs, 0, 708, 550, 50, 1));
+        this.obstacles.push(new Obstacle(this.cnvs, 550, 685, 50, 40, 1));
+        this.obstacles.push(new Obstacle(this.cnvs, 600, 658, 43, 60, 1));
+        this.obstacles.push(new Obstacle(this.cnvs, 643, 625, 45, 80, 1));
+        this.obstacles.push(new Obstacle(this.cnvs, 690, 560, 450, 100, 1));
+        this.obstacles.push(new Obstacle(this.cnvs, 1140, 580, 60, 70, 1));
+        this.obstacles.push(new Obstacle(this.cnvs, 1200, 620, 50, 60, 1));
+        this.obstacles.push(new Obstacle(this.cnvs, 1250, 660, 40, 90, 1));
+        this.obstacles.push(new Obstacle(this.cnvs, 1290, 698, 690, 51, 1));
         this.obstacles.push(new Obstacle(this.cnvs, 1955, 700, 70, 49, 1));
         this.obstacles.push(new Obstacle(this.cnvs, 1990, 700, 40, 190, 1));
         this.obstacles.push(new Obstacle(this.cnvs, 2025, 840, 1145, 50, 1));

@@ -7,7 +7,6 @@ class Game {
         this.inventory = new Array();
         this.gameOver = false;
         this.shurikenCount = 3;
-        this.ninjato = new Ninjato(this.cnvs, 300, 200);
         this.obstacles.push(new Obstacle(this.cnvs, 0, 685, 550, 50, 1));
         this.obstacles.push(new Obstacle(this.cnvs, 550, 655, 50, 40, 1));
         this.obstacles.push(new Obstacle(this.cnvs, 600, 620, 40, 70, 1));
@@ -122,7 +121,6 @@ class Game {
         this.gameOver = false;
         this.shurikenCount = 3;
         this.ninja = new Ninja(this.cnvs, 100, 200);
-        this.ninjato = new Ninjato(this.cnvs, 300, 200);
         this.obstacles.push(new Obstacle(this.cnvs, 0, 708, 550, 50, 1));
         this.obstacles.push(new Obstacle(this.cnvs, 550, 685, 50, 40, 1));
         this.obstacles.push(new Obstacle(this.cnvs, 600, 658, 43, 60, 1));
@@ -208,6 +206,9 @@ class Game {
             this.gameOver = true;
             return; 
         }
+        if (keyState[16] && this.ninja.ninjato.slash == 0) {
+            this.ninja.ninjato.doSlash();
+        }
         if (keyState[17] && this.ninja.shurikenCount > 0 && this.ninja.shurikenReady) {
             this.ninja.shurikenCount--;
             this.ninja.shurikenReady = false; 
@@ -259,7 +260,6 @@ class Game {
                 this.inventory[idx].postures.set(1);
             }
         }
-
         this.ninja.animate(this.obstacles);
         if(this.ninja.hasKey){
             this.gate.postures.set(1);
@@ -287,7 +287,6 @@ class Game {
             this.obstacles[i].draw(this.background.sx, this.background.w);
         }
         this.ninja.draw();
-        this.ninjato.draw();
     }
 
     writeGameOver(){

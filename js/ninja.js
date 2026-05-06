@@ -6,6 +6,7 @@ const ninjaGoLeft = 1;
 class Ninja extends Element {
     constructor(cnvs) {
         super(cnvs, 350, 400, 100, 200);
+        this.ninjato = new Ninjato(cnvs);
         this.gridSize = 0;
         this.jump = 0;
         this.inAir = true;
@@ -138,6 +139,8 @@ class Ninja extends Element {
         } else {
             this.velocity = velocityWalk;
         }
+        this.ninjato.setxy(this.x+this.w, this.y+this.h/3);
+        this.ninjato.animate();
     }
 
     draw() {
@@ -146,6 +149,7 @@ class Ninja extends Element {
         if (img.complete) {
             this.ctx.drawImage(img, this.x, this.y);
         }
+        this.ninjato.draw();
     }
 
     goRight(backgroundSX, backgroundW) {

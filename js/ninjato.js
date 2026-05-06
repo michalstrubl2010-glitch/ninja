@@ -13,12 +13,18 @@ class Ninjato extends Element{
         this.yHandle=this.y;
         this.xEnd=this.x+this.w;
         this.yEnd=this.y;
+        this.slash=0;
     }
 
     animate() {
+        if (this.slash > 0) {
+            this.slash--;
+        }
     }
 
     draw() {
+        if (this.slash <= 0) return;
+        
         const myCos = Math.cos(this.angle * Math.PI / 180); 
         const mySin = Math.sin(this.angle * Math.PI / 180); 
 
@@ -74,5 +80,16 @@ class Ninjato extends Element{
         this.ctx.lineTo(x4, y4);
         this.ctx.stroke();
         this.ctx.closePath();
+    }
+  
+    setxy(x, y) {
+        this.x = x - 50;
+        this.y = y;
+    }
+
+    doSlash(){
+        this.slash=(20);
+        this.angle=310;
+        this.angleInc=this.angleStep;
     }
 }

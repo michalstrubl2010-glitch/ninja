@@ -139,6 +139,7 @@ class Ninja extends Element {
         } else {
             this.velocity = velocityWalk;
         }
+        this.ninjato.direction = this.direction;
         this.ninjato.setxy(this.x+this.w, this.y+this.h/3);
         this.ninjato.animate();
     }

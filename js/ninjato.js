@@ -14,11 +14,44 @@ class Ninjato extends Element{
         this.xEnd=this.x+this.w;
         this.yEnd=this.y;
         this.slash=0;
+        this.direction = ninjaGoRight;
     }
 
     animate() {
-        if (this.slash > 0) {
-            this.slash--;
+        if (this.direction == ninjaGoRight) {
+            if (this.slash > 0) {
+                this.slash--;
+                this.angle = this.angle + this.angleInc;
+                if(this.angle < 300 && this.angle > 280){
+                    this.angleInc=this.angleStep;
+                }       
+                if (this.angle > 360 ){
+                    this.angle=0;
+                }   
+                if (this.angle < 0){
+                    this.angle=360;
+                }
+                if (this.angle > 45 && this.angle < 65){
+                    this.angleInc=this.angleStep * -1;
+                }
+            }
+        } else {
+            if (this.slash > 0) {
+                this.slash--;
+                this.angle = this.angle + this.angleInc;
+                if (this.angle < 240 && this.angle > 260){
+                    this.angleInc = -this.angleStep;
+                }    
+                if (this.angle > 360){
+                    this.angle=0;
+                }   
+                if (this.angle < 0){
+                    this.angle=360;
+                }   
+                if (this.angle > 115 && this.angle < 135){
+                    this.angleInc = this.angleStep;
+                }
+            }
         }
     }
 
@@ -33,20 +66,6 @@ class Ninjato extends Element{
 
         this.xEnd=this.x + this.w * myCos;
         this.yEnd=this.y + this.w * mySin;
-        this.angle=this.angle + this.angleInc;
-
-        if(this.angle < 300 && this.angle > 280){
-            this.angleInc=this.angleStep;
-        }       
-        if (this.angle > 360 ){
-            this.angle=0;
-        }   
-        if (this.angle < 0){
-            this.angle=360;
-        }
-        if (this.angle > 45 && this.angle < 65){
-            this.angleInc=this.angleStep * -1;
-        }
 
         const x1 = this.x;
         const y1 = this.y;
@@ -83,13 +102,23 @@ class Ninjato extends Element{
     }
   
     setxy(x, y) {
-        this.x = x - 50;
-        this.y = y;
+        if (this.direction == ninjaGoRight) {
+            this.x = x - 50;
+            this.y = y;
+        } else {
+            this.x = x - 50;
+            this.y = y;
+        }
     }
 
     doSlash(){
         this.slash=(20);
-        this.angle=310;
-        this.angleInc=this.angleStep;
+        if (this.direction == ninjaGoRight) {
+            this.angle=310;
+            this.angleInc=this.angleStep;
+        } else {
+            this.angle=230;
+            this.angleInc=-this.angleStep;
+        }
     }
 }
